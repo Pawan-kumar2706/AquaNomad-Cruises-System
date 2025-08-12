@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - AquaNomad Cruises System</title>
+  <link rel="icon" type="image/png" href="/images/ship-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    .fade {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .role-bg-voyager {
+      background: linear-gradient(to bottom right, #d0e8f2, #ffffff);
+    }
+
+    .role-bg-admin {
+      background: linear-gradient(to bottom right, #ffe5e5, #ffffff);
+    }
+
+    .role-bg-manager {
+      background: linear-gradient(to bottom right, #e6ffed, #ffffff);
+    }
+
+    .role-bg-cook {
+      background: linear-gradient(to bottom right, #fff5e6, #ffffff);
+    }
+
+    .role-bg-supervisor {
+      background: linear-gradient(to bottom right, #f3e8ff, #ffffff);
+    }
+
+    .tab-btn {
+      @apply w-full text-left px-4 py-2 hover:bg-gray-100 rounded-md transition-all duration-300;
+    }
+
+    .tab-btn.active {
+      @apply font-semibold border-l-4 pl-3;
+    }
+  </style>
+</head>
+
+<body id="body" class="min-h-screen flex flex-col role-bg-voyager text-gray-800 transition-colors duration-500">
+
+  <header
+    class="bg-white/80 backdrop-blur shadow-sm px-6 py-4 flex flex-wrap justify-between items-center gap-y-2 border-b border-cyan-100">
+    <div class="flex items-center gap-4 text-2xl font-extrabold text-cyan-700 tracking-wide">
+      <h1 id="roleHeading" class="text-2xl font-bold text-cyan-600 flex items-center gap-3 fade show">
+        <i class="fas fa-ship"></i>AquaNomad Cruises -
+        <span class="sm:inline text-base font-normal text-gray-500">| <span id="roleTitle">Voyager</span></span>
+      </h1>
+    </div>
+  </header>
+
+  <main class="flex-grow flex justify-center items-center px-4 py-10">
+    <div
+      class="bg-white bg-opacity-90 p-10 rounded-xl shadow-2xl w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Sidebar Role Selector -->
+      <div class="md:col-span-1">
+        <h2 class="text-lg font-semibold mb-4 text-gray-700">Select Role</h2>
+        <div class="space-y-2 flex flex-col items-start">
+          <button
+            class="tab-btn tab-voyager active w-full text-left px-4 py-2 rounded flex items-center gap-2 hover:bg-blue-100 transition"
+            data-role="voyager">
+            <i class="fas fa-user text-blue-600"></i> <span>Voyager</span>
+          </button>
+          <button
+            class="tab-btn tab-admin w-full text-left px-4 py-2 rounded flex items-center gap-2 hover:bg-red-100 transition"
+            data-role="admin">
+            <i class="fas fa-user-shield text-red-600"></i> <span>Admin</span>
+          </button>
+          <button
+            class="tab-btn tab-manager w-full text-left px-4 py-2 rounded flex items-center gap-2 hover:bg-green-100 transition"
+            data-role="manager">
+            <i class="fas fa-clipboard-list text-green-600"></i> <span>Manager</span>
+          </button>
+          <button
+            class="tab-btn tab-cook w-full text-left px-4 py-2 rounded flex items-center gap-2 hover:bg-orange-100 transition"
+            data-role="cook">
+            <i class="fas fa-utensils text-orange-500"></i> <span>Head Cook</span>
+          </button>
+          <button
+            class="tab-btn tab-supervisor w-full text-left px-4 py-2 rounded flex items-center gap-2 hover:bg-purple-100 transition"
+            data-role="supervisor">
+            <i class="fas fa-user-tie text-purple-600"></i> <span>Supervisor</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <div class="md:col-span-2">
+        <form id="loginForm" class="space-y-6 fade show">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input id="email" type="email" placeholder="Enter your email"
+              class="mt-1 w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+              required />
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <input id="password" type="password" placeholder="Enter your password"
+              class="mt-1 w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+              required />
+          </div>
+
+          <button id="loginBtn"
+            class="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded flex justify-center items-center gap-2">
+            <i class="fas fa-sign-in-alt"></i> <span id="btnText">Login</span>
+          </button>
+
+          <p id="loginError" class="text-red-500 text-sm hidden text-center mt-2"></p>
+        </form>
+
+        <p class="text-sm mt-6 text-center">
+          <i class="fas fa-user-plus text-cyan-500 mr-1"></i>
+          New Voyager? <a href="/register.html" class="text-blue-600 hover:underline">Register here</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="text-center text-sm text-gray-500 p-4 mt-auto">
+    &copy; 2025 AquaNomad Cruises System
+  </footer>
+
+  <script src="/env.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+
+  <script>
+    const roleTitle = document.getElementById("roleTitle");
+    const roleHeading = document.getElementById("roleHeading");
+    const loginForm = document.getElementById("loginForm");
+    const loginBtn = document.getElementById("loginBtn");
+    const btnText = document.getElementById("btnText");
+    const tabs = document.querySelectorAll(".tab-btn");
+    const body = document.getElementById("body");
+
+    let selectedRole = "voyager";
+    let animating = false;
+
+    const bgClasses = {
+      voyager: 'role-bg-voyager',
+      admin: 'role-bg-admin',
+      manager: 'role-bg-manager',
+      cook: 'role-bg-cook',
+      supervisor: 'role-bg-supervisor'
+    };
+
+    const btnClasses = {
+      voyager: ['bg-blue-600', 'hover:bg-blue-700'],
+      admin: ['bg-red-600', 'hover:bg-red-700'],
+      manager: ['bg-green-600', 'hover:bg-green-700'],
+      cook: ['bg-orange-500', 'hover:bg-orange-600'],
+      supervisor: ['bg-purple-600', 'hover:bg-purple-700']
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        if (animating || tab.classList.contains("active")) return;
+
+        animating = true;
+
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const newRole = tab.dataset.role;
+
+        roleHeading.classList.remove("show");
+        loginForm.classList.remove("show");
+
+        setTimeout(() => {
+          selectedRole = newRole;
+          roleTitle.textContent = capitalize(newRole);
+
+          body.className = `min-h-screen flex flex-col ${bgClasses[newRole]} text-gray-800 transition-colors duration-500`;
+
+          loginBtn.className = `text-white w-full py-2 rounded flex justify-center items-center gap-2 ${btnClasses[newRole].join(' ')}`;
+
+          roleHeading.classList.add("show");
+          loginForm.classList.add("show");
+          animating = false;
+        }, 300);
+      });
+    });
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    window.selectedRole = () => selectedRole;
+  </script>
+</body>
+
+</html>

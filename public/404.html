@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found</title>
+  <link rel="icon" type="image/png" href="/images/ship-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ccfbf1);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 48px 28px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      max-width: 440px;
+      border: 2px solid #06b6d4;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-4px);
+    }
+
+    .container i {
+      font-size: 66px;
+      color: #0891b2;
+      margin-bottom: 24px;
+    }
+
+    .container h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0e7490;
+      margin-bottom: 14px;
+    }
+
+    .container p {
+      font-size: 16px;
+      color: #64748b;
+      margin-bottom: 32px;
+    }
+
+    .container a {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #06b6d4;
+      color: white;
+      padding: 13px 30px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 14px rgba(6, 182, 212, 0.3);
+    }
+
+    .container a:hover {
+      background-color: #0e7490;
+      transform: scale(1.04);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 36px 20px;
+      }
+
+      .container h1 {
+        font-size: 28px;
+      }
+
+      .container i {
+        font-size: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <i class="fas fa-exclamation-triangle"></i>
+    <h1>404 - Not Found</h1>
+    <p>Oops! The page you're looking for doesn’t exist or has been moved.</p>
+    <a href="/">← Back to Home</a>
+  </div>
+</body>
+
+</html>

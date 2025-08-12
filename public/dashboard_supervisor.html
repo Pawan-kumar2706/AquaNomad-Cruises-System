@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>AquaNomad Cruises – Supervisor Dashboard</title>
+  <link rel="icon" type="image/png" href="/images/ship-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .fade-in {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-cyan-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header
+    class="bg-white/80 backdrop-blur shadow-sm px-6 py-4 flex flex-wrap justify-between items-center gap-y-2 border-b border-cyan-100">
+    <div class="flex items-center gap-4 text-2xl font-extrabold text-cyan-700 tracking-wide">
+      <i class="fas fa-ship text-cyan-600"></i> AquaNomad Cruises
+      <span class="sm:inline text-base font-normal text-gray-500">| Supervisor Dashboard</span>
+    </div>
+
+    <!-- User Info + Logout -->
+    <div class="flex items-center gap-4">
+      <div id="userInfo" class="text-sm text-right hidden sm:block text-gray-600"></div>
+      <button id="logoutBtn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg shadow transition-all">
+        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 max-w-4xl mx-auto w-full fade-in">
+    <p class="text-lg mb-4 font-semibold text-cyan-800 flex items-center gap-2">
+      <i class="fas fa-box text-cyan-600"></i> Stationery Orders from Voyagers
+    </p>
+    <div id="stationeryOrders" class="space-y-4">
+      <!-- Orders will be dynamically inserted here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-4 bg-white shadow-inner border-t border-cyan-200">
+    &copy; 2025 AquaNomad Cruises – Supply Department
+  </footer>
+
+  <!-- Scripts (unchanged logic) -->
+  <script src="/env.js"></script>
+  <script type="module" src="/js/supervisor.js"></script>
+  <script type="module" src="/js/logout.js"></script>
+</body>
+
+</html>
